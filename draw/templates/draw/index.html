@@ -73,7 +73,16 @@
           path.strokeColor = ran_color
         }
        });
+       window.addEventListener('devicemotion', (event) => {
+        var x_acceleration = event.acceleration.x;
+        var y_acceleration = event.acceleration.y;
+        var z_acceleration = event.acceleration.z;
+        if (Math.abs(x_acceleration > 10) || Math.abs(y_acceleration >10) || Math.abs(z_acceleration) > 10){
+          paper.project.clear();
+        }
+       });
      }
+       
     else {
        socket.onmessage = function(receivedMessage) {
       var data = receivedMessage.data;
