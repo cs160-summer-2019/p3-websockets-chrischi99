@@ -11,12 +11,16 @@
     <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
 
     <style type="text/css">
+      #myCanvas{
+        border: 5px solid black;
+      }
+        
     </style>
 
 </head>
 <body>
     <!-- You may change the dimensions of this canvas -->
-    <canvas id="myCanvas" width="750px" height="750px"></canvas>
+    <canvas id="myCanvas" width="1000px" height="1000px"></canvas>
 </body>
 <script>
 
@@ -24,13 +28,75 @@
     var canvas = document.getElementById('myCanvas');
     paper.setup(canvas);
     var tool = new paper.Tool();
-
-    // getting the URL (you may want to use for Exercise 3)
+  
+     // getting the URL (you may want to use for Exercise 3)
     var url = window.location.href;
-
-    // var socket = new WebSocket(
-    //     'wss://<your url here>/ws/draw');
-
-
+  
+    // socket server
+    var socket = new WebSocket('wss://p3-websockets-chrischi99-chrischicc9921376.codeanyapp.com/ws/draw');
+    
+    //generate id for users
+    var user_id = Math.random();
+  
+    //generate random color 
+     function random_Color() {
+      var red = Math.floor(Math.random() * 256);
+      var green = Math.floor(Math.random() * 256);
+      var blue = Math.floor(Math.random() * 256);
+      return 'rgb(' + red + "," + green + "," + blue + ')';
+    }
+  
+    //color
+    var user_color = random_Color();
+  
+    //path for writing lines
+    var path = new paper.Path(); 
+    path.strokeColor = user_color;
+    path.strokeWidth = '3';
+    
+    //other paths
+    var other_path = {
+      id_number: path
+    }
+    
+      //check if small screen
+     if (url.indexOf("small") >-1){
+        socket.onmessage = function(receivedMessage) {
+              return;
+        };
+       
+       // change color when rotate
+       window.addEventListener('deviceorientation', (event) => {
+        var turn = event.gamma;
+        if (turn > 42) {
+          var ran_color = random_Color();
+          path.strokeColor = ran_color
+        }
+       });
+     }
+    else {
+       socket.onmessage = function(receivedMessage) {
+      var data = receivedMessage.data;
+      var everything = JSON.parse(data);
+       //check if the ID is the same as itself
+      if (everything.id in other_path) {
+        other_path[everything.id].add(new paper.Point(everything.x, everything.y));
+      } else {
+        other_path[everything.id] = new paper.Path();
+        other_path[everything.id].strokeColor = everything.color;
+        other_path[everything.id].strokeWidth = '3';
+        other_path[everything.id].add(new paper.Point(everything.x, everything.y));
+      }
+    }
+    }
+  
+    //mouse move draw lines
+    tool.onMouseMove = function(event) {
+      var info = {x: event.point.x, y: event.point.y, color: user_color, id: user_id};
+      var jsonstr = JSON.stringify(info);
+      socket.send(jsonstr);
+      path.add(event.point);
+    }
+    
 </script>
 </html>
