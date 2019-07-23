@@ -66,18 +66,19 @@
         };
        
        // change color when rotate
+       var gamma = 0;
        window.addEventListener('deviceorientation', (event) => {
-        var turn = event.gamma;
-        if (turn > 42) {
-          var ran_color = random_Color();
-          path.strokeColor = ran_color
+        if (event.gamma > 30 && gamma < 30) {
+           path.strokeColor = random_Color();
         }
+         gamma = event.gamma;
        });
+       
        window.addEventListener('devicemotion', (event) => {
         var x_acceleration = event.acceleration.x;
         var y_acceleration = event.acceleration.y;
         var z_acceleration = event.acceleration.z;
-        if (Math.abs(x_acceleration > 10) || Math.abs(y_acceleration >10) || Math.abs(z_acceleration) > 10){
+        if (Math.abs(x_acceleration > 10) || Math.abs(y_acceleration) >10 || Math.abs(z_acceleration) > 10){
           paper.project.clear();
         }
        });
