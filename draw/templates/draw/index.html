@@ -4,109 +4,191 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>P4 Drawing</title>
+    <title>draw</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
     <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
 
     <style type="text/css">
-      #myCanvas{
-        border: 5px solid black;
+      .song_name{
+        text-align: center;
       }
+      .singer{
+        text-align: center;
+      }
+      .play{
+        text-align:center;
+      }
+      .download{
+        padding-right:10px;
+      }
+      .download_number{
+        padding-right:30px;
+      }
+      .small_play{
+        padding-right: 10px;
+      }
+      
         
     </style>
 
 </head>
 <body>
-    <!-- You may change the dimensions of this canvas -->
-    <canvas id="myCanvas" width="1000px" height="1000px"></canvas>
+  <!-- songs -->
+  
+  
+  
+  
+  
+  
+  
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-md-6">
+        <h1 class = "song_name">
+          Chasing Pavement
+        </h1>
+        <h2 class = "singer">
+          Adele
+        </h2>
+        <div class = "play"><a onclick="myAudioFunction('a');"><img src = "/static/Play_image.png" alt = "play" width="200" height="200"></a></div>
+        <div class = "row">
+          <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
+          <h2 class = "download_number adele">2000</h2>
+          <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "download" width="50" height="50"></div>
+           <h2 class = "play_number"><span id="myText"></span></h2>
+        </div>
+      </div>
+      
+      <div class = "col-md-6">
+         <h1 class = "song_name">
+          Yello
+        </h1>
+        <h2 class = "singer">
+          Cold Play
+        </h2>
+        <div class = "play">
+          <a onclick="myAudioFunction('c');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200"></a></div>
+       
+         <div class = "row">
+          <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
+          <h2 class = "download_number">2000</h2>
+          <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "download" width="50" height="50"></div>
+           <h2 class = "play_number"><span id="myText"></span></h2>
+        </div>
+      
+      </div>
+    </div>
+    <br>
+    <br>
+   
+    <div class = "row">
+      <div class = "col-md-6">
+         <h1 class = "song_name">
+          Stay
+        </h1>
+        <h2 class = "singer">
+          Rihanna
+        </h2>
+        <div class = "play">
+          <a onclick="myAudioFunction('r');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200" ></a></div>
+       
+          <div class = "row">
+          <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
+           <h2 class = "download_number">2000</h2>
+           <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "download" width="50" height="50"></div>
+            <h2 class = "play_number"><span id="myText"></span></h2>
+          </div>
+        
+        
+      </div>
+      <div class = "col-md-6">
+        <h1 class = "song_name">
+          I'm Not The Only One
+        </h1>
+        <h2 class = "singer">
+          Sam Smith
+        </h2>
+        <div class = "play">
+          <a onclick="myAudioFunction('s');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200"></a></div>
+       
+          <div class = "row">
+          <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
+            <h2 class = "download_number">2000</h2>
+            <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "download" width="50" height="50"></div>
+            <h2 class = "play_number"><span id="myText"></span></h2>
+          </div>
+       
+      </div>
+    </div>
+  </div>
+  
+     
 </body>
 <script>
-
-    // setting up the canvas and one paper tool
-    var canvas = document.getElementById('myCanvas');
-    paper.setup(canvas);
-    var tool = new paper.Tool();
+  var adele_download= 2000;
+  var coldplay_download= 2000;
+  var rihanna_download= 2000;
+  var sam_download= 2000;
+  var adele_play= 2000;
+  var coldplay_play= 2000;
+  var rihanna_play= 2000;
+  var sam_play= 2000;
   
-     // getting the URL (you may want to use for Exercise 3)
-    var url = window.location.href;
-  
-    // socket server
-    var socket = new WebSocket('wss://p3-websockets-chrischi99-chrischicc9921376.codeanyapp.com/ws/draw');
-    
-    //generate id for users
-    var user_id = Math.random();
-  
-    //generate random color 
-     function random_Color() {
-      var red = Math.floor(Math.random() * 256);
-      var green = Math.floor(Math.random() * 256);
-      var blue = Math.floor(Math.random() * 256);
-      return 'rgb(' + red + "," + green + "," + blue + ')';
-    }
-  
-    //color
-    var user_color = random_Color();
-  
-    //path for writing lines
-    var path = new paper.Path(); 
-    path.strokeColor = user_color;
-    path.strokeWidth = '3';
-    
-    //other paths
-    var other_path = {
-      id_number: path
-    }
-    
-      //check if small screen
-     if (url.indexOf("small") >-1){
-        socket.onmessage = function(receivedMessage) {
-              return;
-        };
-       
-       // change color when rotate
-       var gamma = 0;
-       window.addEventListener('deviceorientation', (event) => {
-        if (event.gamma > 30 && gamma < 30) {
-           path.strokeColor = random_Color();
-        }
-         gamma = event.gamma;
-       });
-       
-       window.addEventListener('devicemotion', (event) => {
-        var x_acceleration = event.acceleration.x;
-        var y_acceleration = event.acceleration.y;
-        var z_acceleration = event.acceleration.z;
-        if (Math.abs(x_acceleration > 10) || Math.abs(y_acceleration) >10 || Math.abs(z_acceleration) > 10){
-          paper.project.clear();
-        }
-       });
+  var regular_a = new Audio("/static/Songs/Regular/adele.mp3");
+  var regular_c = new Audio("/static/Songs/Regular/coldplay.mp3");
+  var regular_r = new Audio("/static/Songs/Regular/rihanna.mp3");
+  var regular_s = new Audio("/static/Songs/Regular/smith.mp3");
+  function myAudioFunction(letter) {
+         if(letter == 'a') {
+             regular_a.play();
+             regular_c.pause();
+             regular_c.currentTime = 0;
+             regular_r.pause();
+             regular_r.currentTime = 0;
+             regular_s.pause();
+             regular_s.currentTime = 0;
+             increasing_number(adele_play);
+         } else if(letter == 'c') {
+             regular_c.play();
+             regular_a.pause();
+             regular_a.currentTime = 0;
+             regular_r.pause();
+             regular_r.currentTime = 0;
+             regular_s.pause();
+             regular_s.currentTime = 0;
+            increasing_number(coldplay_play);
+         }
+          else if (letter == 'r'){
+             regular_r.play();
+             regular_a.pause();
+             regular_a.currentTime = 0;
+             regular_c.pause();
+             regular_c.currentTime = 0;
+             regular_s.pause();
+             regular_s.currentTime = 0;
+            increasing_number(rihanna_play); 
+          }
+         else{
+             regular_s.play();
+             regular_c.pause();
+             regular_c.currentTime = 0;
+             regular_r.pause();
+             regular_r.currentTime = 0;
+             regular_a.pause();
+             regular_a.currentTime = 0;
+           increasing_number(sam_play);
+         }
      }
-       
-    else {
-       socket.onmessage = function(receivedMessage) {
-      var data = receivedMessage.data;
-      var everything = JSON.parse(data);
-       //check if the ID is the same as itself
-      if (everything.id in other_path) {
-        other_path[everything.id].add(new paper.Point(everything.x, everything.y));
-      } else {
-        other_path[everything.id] = new paper.Path();
-        other_path[everything.id].strokeColor = everything.color;
-        other_path[everything.id].strokeWidth = '3';
-        other_path[everything.id].add(new paper.Point(everything.x, everything.y));
-      }
-    }
-    }
   
-    //mouse move draw lines
-    tool.onMouseMove = function(event) {
-      var info = {x: event.point.x, y: event.point.y, color: user_color, id: user_id};
-      var jsonstr = JSON.stringify(info);
-      socket.send(jsonstr);
-      path.add(event.point);
-    }
+  function increasing_number(number) {
+     number ++;
+    document.getElementById("myText").innerHTML = number;
+}
+   
+    
+ 
     
 </script>
 </html>
