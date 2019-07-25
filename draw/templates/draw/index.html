@@ -11,6 +11,11 @@
     <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
 
     <style type="text/css">
+        body {
+         color: white;
+         background-color: gray;
+         font-family: 'proxima-nova', sans-serif;
+        }
       .song_name{
         text-align: center;
       }
@@ -25,9 +30,17 @@
       }
       .download_number{
         padding-right:30px;
+        padding-top:3px;
       }
       .small_play{
         padding-right: 10px;
+        padding-top:3px;
+      }
+      .play_number{
+        padding-top:5px;
+      }
+      .radio{
+        padding-left : 100px;
       }
       
         
@@ -35,14 +48,6 @@
 
 </head>
 <body>
-  <!-- songs -->
-  
-  
-  
-  
-  
-  
-  
   <div class = "container">
     <div class = "row">
       <div class = "col-md-6">
@@ -52,12 +57,14 @@
         <h2 class = "singer">
           Adele
         </h2>
-        <div class = "play"><a onclick="myAudioFunction('a');"><img src = "/static/Play_image.png" alt = "play" width="200" height="200"></a></div>
+        <div class = "play">
+        <a onclick="myAudioFunction('a');"><img src = "/static/Play_image.png" alt = "play" width="200" height="200"></a></div>
         <div class = "row">
           <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
-          <h2 class = "download_number adele">2000</h2>
-          <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "download" width="50" height="50"></div>
-           <h2 class = "play_number"><span id="myText"></span></h2>
+          <h2 class = "download_number" style="width:100px;"><span id="adele_download_number"></span></h2>
+          <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "small_play" width="50" height="50"></div>
+           <h2 class = "play_number" style="width:100px;"><span id="adele_play_number"></span></h2>
+          <a onclick="mydownloadFunction('a');"><div class = 'radio'><img src = "/static/radio.png" alt = "radio" width="50" height="50"></div></a>
         </div>
       </div>
       
@@ -73,9 +80,10 @@
        
          <div class = "row">
           <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
-          <h2 class = "download_number">2000</h2>
-          <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "download" width="50" height="50"></div>
-           <h2 class = "play_number"><span id="myText"></span></h2>
+          <h2 class = "download_number" style="width:100px;"><span id="coldplay_download_number"></span></h2>
+          <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "small_play" width="50" height="50"></div>
+           <h2 class = "play_number" style="width:100px;"><span id="coldplay_play_number"></span></h2>
+           <a onclick="mydownloadFunction('c');"><div class = 'radio'><img src = "/static/radio.png" alt = "radio" width="50" height="50"></div></a>
         </div>
       
       </div>
@@ -96,9 +104,10 @@
        
           <div class = "row">
           <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
-           <h2 class = "download_number">2000</h2>
-           <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "download" width="50" height="50"></div>
-            <h2 class = "play_number"><span id="myText"></span></h2>
+           <h2 class = "download_number" style="width:100px;"><span id="rihanna_download_number"></span></h2>
+           <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "small_play" width="50" height="50"></div>
+            <h2 class = "play_number" style="width:100px;"><span id="rihanna_play_number"></span></h2>
+            <a onclick="mydownloadFunction('r');"><div class = 'radio'><img src = "/static/radio.png" alt = "radio" width="50" height="50"></div></a>
           </div>
         
         
@@ -115,9 +124,10 @@
        
           <div class = "row">
           <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
-            <h2 class = "download_number">2000</h2>
-            <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "download" width="50" height="50"></div>
-            <h2 class = "play_number"><span id="myText"></span></h2>
+            <h2 class = "download_number" style="width:100px;"><span id="sam_download_number"></span></h2>
+            <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "small_play" width="50" height="50"></div>
+            <h2 class = "play_number" style="width:100px;"><span id="sam_play_number"></span></h2>
+            <a onclick="mydownloadFunction('s');"><div class = 'radio'><img src = "/static/radio.png" alt = "radio" width="50" height="50"></div></a>
           </div>
        
       </div>
@@ -127,14 +137,25 @@
      
 </body>
 <script>
+  $( document ).ready(function() {
+     document.getElementById("adele_play_number").innerHTML = 2000;
+     document.getElementById("coldplay_play_number").innerHTML = 1600;
+     document.getElementById("rihanna_play_number").innerHTML = 1700;
+     document.getElementById("sam_play_number").innerHTML = 1800;
+     document.getElementById("adele_download_number").innerHTML = 2000;
+     document.getElementById("coldplay_download_number").innerHTML = 1600;
+     document.getElementById("rihanna_download_number").innerHTML = 1700;
+     document.getElementById("sam_download_number").innerHTML = 1800;
+    
+  });
   var adele_download= 2000;
-  var coldplay_download= 2000;
-  var rihanna_download= 2000;
-  var sam_download= 2000;
+  var coldplay_download= 1600;
+  var rihanna_download= 1700;
+  var sam_download= 1800;
   var adele_play= 2000;
-  var coldplay_play= 2000;
-  var rihanna_play= 2000;
-  var sam_play= 2000;
+  var coldplay_play= 1600;
+  var rihanna_play= 1700;
+  var sam_play= 1800;
   
   var regular_a = new Audio("/static/Songs/Regular/adele.mp3");
   var regular_c = new Audio("/static/Songs/Regular/coldplay.mp3");
@@ -149,7 +170,8 @@
              regular_r.currentTime = 0;
              regular_s.pause();
              regular_s.currentTime = 0;
-             increasing_number(adele_play);
+             adele_play ++;
+             document.getElementById("adele_play_number").innerHTML = adele_play;
          } else if(letter == 'c') {
              regular_c.play();
              regular_a.pause();
@@ -158,7 +180,8 @@
              regular_r.currentTime = 0;
              regular_s.pause();
              regular_s.currentTime = 0;
-            increasing_number(coldplay_play);
+             coldplay_play ++;
+             document.getElementById("coldplay_play_number").innerHTML = coldplay_play;
          }
           else if (letter == 'r'){
              regular_r.play();
@@ -168,7 +191,8 @@
              regular_c.currentTime = 0;
              regular_s.pause();
              regular_s.currentTime = 0;
-            increasing_number(rihanna_play); 
+             rihanna_play ++;
+             document.getElementById("rihanna_play_number").innerHTML = rihanna_play;
           }
          else{
              regular_s.play();
@@ -178,17 +202,28 @@
              regular_r.currentTime = 0;
              regular_a.pause();
              regular_a.currentTime = 0;
-           increasing_number(sam_play);
+             sam_play ++;
+             document.getElementById("sam_play_number").innerHTML = sam_play;
          }
      }
-  
-  function increasing_number(number) {
-     number ++;
-    document.getElementById("myText").innerHTML = number;
-}
-   
-    
- 
-    
+ function mydownloadFunction(letter) {
+      if(letter == 'a') {
+             adele_download ++;
+             document.getElementById("adele_download_number").innerHTML = adele_download;
+         } else if(letter == 'c') {
+             coldplay_download ++;
+             document.getElementById("coldplay_download_number").innerHTML = coldplay_download;
+         }
+          else if (letter == 'r'){
+             rihanna_download ++;
+             document.getElementById("rihanna_download_number").innerHTML = rihanna_download;
+          }
+         else{
+             sam_download ++;
+             document.getElementById("sam_download_number").innerHTML = sam_download;
+         }
+     
+  }
+
 </script>
 </html>
