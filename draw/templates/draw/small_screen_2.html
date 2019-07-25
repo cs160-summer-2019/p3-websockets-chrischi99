@@ -201,11 +201,18 @@
            follower_count --;
            sam_followers ++;
            document.getElementById("sam_followers").innerHTML = sam_followers;
+           var follow_info = {"user_id": 2, "update": "1"};
+           var followInfoJSON = JSON.stringify(follow_info);
+           socket.send(followInfoJSON);
+           console.log('update follower');
          }
         else{
           follower_count ++;
           sam_followers --;
           document.getElementById("sam_followers").innerHTML = sam_followers;
+          var follow_info = {"user_id": 1, "update": "1"};
+          var followInfoJSON = JSON.stringify(follow_info);
+          socket.send(followInfoJSON);
         } 
         $(this).text(function(i, text){
           return text == "Follow" ? "Unfollow" : "Follow";

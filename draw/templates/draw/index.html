@@ -64,10 +64,11 @@
           <a onclick="myAudioFunction('m');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200" ></a></div>   
         <div class = "row">
             <h2>
-              Followers: 2000
+              <h2 class = "follower_number" style="width:100px;">Followers:<span id="shawn_follower_number"></span></h2>
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_1" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -95,7 +96,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_2" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -126,7 +127,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_3" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -154,7 +155,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_4" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -181,11 +182,12 @@
         <div class = "play">
         <a onclick="myAudioFunction('a');"><img src = "/static/Play_image.png" alt = "play" width="200" height="200"></a></div>
           <div class = "row">
-            <h2>
-              Followers: 2000
+              <h2>
+              <h2 class = "follower_number" style="width:100px;">Followers:<span id="adele_follower_number"></span></h2>
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_5" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -212,7 +214,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_6" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -244,7 +246,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_7" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -272,7 +274,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_8" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -296,6 +298,7 @@
     //adele
      document.getElementById("adele_play_number").innerHTML = 2000;
      document.getElementById("adele_download_number").innerHTML = 2000;
+     document.getElementById("adele_follower_number").innerHTML = 524;
     //coldplay
      document.getElementById("coldplay_play_number").innerHTML = 1600;
      document.getElementById("coldplay_download_number").innerHTML = 1600;
@@ -308,6 +311,7 @@
     //shawn
      document.getElementById("shawn_download_number").innerHTML = 3800;
      document.getElementById("shawn_play_number").innerHTML = 8800;
+     document.getElementById("shawn_follower_number").innerHTML = 1726;
     //billie
      document.getElementById("Billie_download_number").innerHTML = 3800;
      document.getElementById("Billie_play_number").innerHTML = 7200;
@@ -325,6 +329,7 @@
   //adele 
   var adele_download= 2000;
   var adele_play= 2000;
+  var adele_follower = 524;
   //coldplay
   var coldplay_download= 1600;
   var coldplay_play= 1600;
@@ -337,6 +342,7 @@
   //shawn
   var shawn_play= 8800;
   var shawn_download= 3800;
+  var shawn_follower = 1726;
   //billie
   var Billie_play= 7200;
   var Billie_download= 3800;
@@ -554,8 +560,9 @@
              regular_b.currentTime = 0;
              regular_k.pause();
              regular_k.currentTime = 0;
-             jonas_play ++;
-             document.getElementById("jonas_play_number").innerHTML = jonas_play;
+             Jonas_play ++;
+             console.log(Jonas_play);
+             document.getElementById("Jonas_play_number").innerHTML = Jonas_play;
          }
          else if (letter == 'j' && j_count === 1){
               stopmusic ();
@@ -578,8 +585,8 @@
              regular_b.currentTime = 0;
              regular_j.pause();
              regular_j.currentTime = 0;
-             khalid_play ++;
-             document.getElementById("khalid_play_number").innerHTML = khalid_play;
+             Khalid_play ++;
+             document.getElementById("Khalid_play_number").innerHTML = Khalid_play;
          }
         else if (letter == 'k' && k_count === 1){
               stopmusic ();
@@ -688,20 +695,51 @@
     //recieve message
     socket.onmessage = function(receivedMessage) { 
       var Info = JSON.parse(receivedMessage.data);
-      if (Info.user_id === 1){
-        if (Info.play_number === 1){
+      
+      //update play number adele
+      if (Info.user_id == 1){
+        if (Info.play_number == 1){
             adele_play ++;
             document.getElementById("adele_play_number").innerHTML = adele_play;
             console.log('Song have play in screen 1');
         }
       }
-       if (Info.user_id === 2){
+     //update follow number adele
+     if (Info.user_id == 1 && Info.update == 1){
+       if (Info.follow_number == 1){
+         //update adele follow number +1
+         adele_follower++;
+         document.getElementById("adele_follower_number").innerHTML = adele_follower;
+       }
+       else if (Info.follow_number == -1){
+         adele_follower--;
+         document.getElementById("adele_follower_number").innerHTML = adele_follower;
+       }
+     }
+      //update play number shawn
+       if (Info.update === "play" && Info.user_id === 2){
         if (Info.play_number === 1){
             shawn_play ++;
             document.getElementById("shawn_play_number").innerHTML = shawn_play;
             console.log('Song have play in screen 2');
         }
       }
+      console.log(Info.user_id);
+       console.log(Info.update);
+      //update follow number shawn
+       if (Info.user_id == 2){
+          if (Info.update == 1){
+         //update shawn follow number +1
+         console.log("here?")
+         shawn_follower++;
+         document.getElementById("shawn_follower_number").innerHTML = shawn_follower;
+       }
+       else if (Info.follow_number == -1){
+         //update shawn follow number -1
+         shawn_follower--;
+         document.getElementById("shawn_follower_number").innerHTML = shawn_follower;
+       }
+     }
     };
 
 </script>
