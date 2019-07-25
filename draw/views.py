@@ -11,3 +11,6 @@ def small_screen(request):
   
 def recording(request):
     return render(request, 'draw/recording.html', {})
+ 
+def small_screen_2(request):
+    return render(request, 'draw/small_screen_2.html', {})

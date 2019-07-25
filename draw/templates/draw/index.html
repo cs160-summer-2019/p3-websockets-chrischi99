@@ -49,6 +49,92 @@
 </head>
 <body>
   <div class = "container">
+     <div class = "row">
+      <div class = "col-md-6">
+         <h1 class = "song_name">
+          Señorita
+        </h1>
+        <h2 class = "singer">
+          Shawn Mendes
+        </h2>
+        <div class = "play">
+          <a onclick="myAudioFunction('r');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200" ></a></div>
+       
+          <div class = "row">
+          <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
+           <h2 class = "download_number" style="width:100px;"><span id="shawn_download_number"></span></h2>
+           <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "small_play" width="50" height="50"></div>
+            <h2 class = "play_number" style="width:100px;"><span id="shawn_play_number"></span></h2>
+            <a onclick="mydownloadFunction('m');"><div class = 'radio'><img src = "/static/radio.png" alt = "radio" width="50" height="50"></div></a>
+          </div>
+        
+        
+      </div>
+      <div class = "col-md-6">
+        <h1 class = "song_name">
+          Bad Guy
+        </h1>
+        <h2 class = "singer">
+          Billie Eilish
+        </h2>
+        <div class = "play">
+          <a onclick="myAudioFunction('s');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200"></a></div>
+       
+          <div class = "row">
+          <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
+            <h2 class = "download_number" style="width:100px;"><span id="Billie_download_number"></span></h2>
+            <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "small_play" width="50" height="50"></div>
+            <h2 class = "play_number" style="width:100px;"><span id="Billie_play_number"></span></h2>
+            <a onclick="mydownloadFunction('b');"><div class = 'radio'><img src = "/static/radio.png" alt = "radio" width="50" height="50"></div></a>
+          </div>
+       
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class = "row">
+      <div class = "col-md-6">
+         <h1 class = "song_name">
+          Sucker
+        </h1>
+        <h2 class = "singer">
+          Jonas Brothers
+        </h2>
+        <div class = "play">
+          <a onclick="myAudioFunction('r');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200" ></a></div>
+       
+          <div class = "row">
+          <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
+           <h2 class = "download_number" style="width:100px;"><span id="Jonas_download_number"></span></h2>
+           <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "small_play" width="50" height="50"></div>
+            <h2 class = "play_number" style="width:100px;"><span id="Jonas_play_number"></span></h2>
+            <a onclick="mydownloadFunction('j');"><div class = 'radio'><img src = "/static/radio.png" alt = "radio" width="50" height="50"></div></a>
+          </div>
+        
+        
+      </div>
+      <div class = "col-md-6">
+        <h1 class = "song_name">
+          Talk
+        </h1>
+        <h2 class = "singer">
+          Khalid
+        </h2>
+        <div class = "play">
+          <a onclick="myAudioFunction('s');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200"></a></div>
+       
+          <div class = "row">
+          <div class = 'download'><img src = "/static/Download.png" alt = "download" width="50" height="50"></div>
+            <h2 class = "download_number" style="width:100px;"><span id="Khalid_download_number"></span></h2>
+            <div class = 'small_play'><img src = "/static/small_playbutton.png" alt = "small_play" width="50" height="50"></div>
+            <h2 class = "play_number" style="width:100px;"><span id="Khalid_play_number"></span></h2>
+            <a onclick="mydownloadFunction('k');"><div class = 'radio'><img src = "/static/radio.png" alt = "radio" width="50" height="50"></div></a>
+          </div>
+       
+      </div>
+    </div>
+    <br>
+    <br>
     <div class = "row">
       <div class = "col-md-6">
         <h1 class = "song_name">
@@ -137,39 +223,77 @@
      
 </body>
 <script>
+  //initiate the numbers
   $( document ).ready(function() {
+    //adele
      document.getElementById("adele_play_number").innerHTML = 2000;
-     document.getElementById("coldplay_play_number").innerHTML = 1600;
-     document.getElementById("rihanna_play_number").innerHTML = 1700;
-     document.getElementById("sam_play_number").innerHTML = 1800;
      document.getElementById("adele_download_number").innerHTML = 2000;
+    //coldplay
+     document.getElementById("coldplay_play_number").innerHTML = 1600;
      document.getElementById("coldplay_download_number").innerHTML = 1600;
+    //rihanna
+     document.getElementById("rihanna_play_number").innerHTML = 1700;
      document.getElementById("rihanna_download_number").innerHTML = 1700;
+    //sam
+     document.getElementById("sam_play_number").innerHTML = 1800;
      document.getElementById("sam_download_number").innerHTML = 1800;
-    
+    //shawn
+     document.getElementById("shawn_download_number").innerHTML = 3800;
+     document.getElementById("shawn_play_number").innerHTML = 8800;
+    //billie
+     document.getElementById("Billie_download_number").innerHTML = 3800;
+     document.getElementById("Billie_play_number").innerHTML = 7200;
+    //jonas
+     document.getElementById("Jonas_download_number").innerHTML = 2800;
+     document.getElementById("Jonas_play_number").innerHTML = 6250;
+    //khalid
+     document.getElementById("Khalid_download_number").innerHTML = 3000;
+     document.getElementById("Khalid_play_number").innerHTML = 5820;
   });
   
-    var socket = new WebSocket('wss://p3-websockets-chrischi99-chrischicc9921376.codeanyapp.com/ws/draw');
   
-  
-  
-  
-  
-  
-  
+
+  //download and play variables
+  //adele 
   var adele_download= 2000;
-  var coldplay_download= 1600;
-  var rihanna_download= 1700;
-  var sam_download= 1800;
   var adele_play= 2000;
+  //coldplay
+  var coldplay_download= 1600;
   var coldplay_play= 1600;
+  //rihanna
+  var rihanna_download= 1700;
   var rihanna_play= 1700;
+  //sam
+  var sam_download= 1800;
   var sam_play= 1800;
+  //shawn
+  var shawn_play= 8800;
+  var shawn_download= 3800;
+  //billie
+  var Billie_play= 7200;
+  var Billie_download= 3800;
+  //jonas
+  var Jonas_play= 6250;
+  var Jonas_download= 2800;
+  //khalid
+  var Khalid_play= 5820;
+  var Khalid_download= 3000;
   
+  //regular audio files 
   var regular_a = new Audio("/static/Songs/Regular/adele.mp3");
   var regular_c = new Audio("/static/Songs/Regular/coldplay.mp3");
   var regular_r = new Audio("/static/Songs/Regular/rihanna.mp3");
   var regular_s = new Audio("/static/Songs/Regular/smith.mp3");
+  //intro audio files
+  var intro_a = new Audio("/static/Songs/Intro/adele.mp3");
+  var intro_c = new Audio("/static/Songs/Intro/coldplay.mp3");
+  var intro_r = new Audio("/static/Songs/Intro/rihanna.mp3");
+  var intro_s = new Audio("/static/Songs/Intro/smith.mp3");
+  
+  
+ 
+
+ 
   function myAudioFunction(letter) {
          if(letter == 'a') {
              regular_a.play();
@@ -203,7 +327,7 @@
              rihanna_play ++;
              document.getElementById("rihanna_play_number").innerHTML = rihanna_play;
           }
-         else{
+         else if (letter == 's') {
              regular_s.play();
              regular_c.pause();
              regular_c.currentTime = 0;
@@ -215,6 +339,7 @@
              document.getElementById("sam_play_number").innerHTML = sam_play;
          }
      }
+ //increase download number
  function mydownloadFunction(letter) {
       if(letter == 'a') {
              adele_download ++;
@@ -227,12 +352,48 @@
              rihanna_download ++;
              document.getElementById("rihanna_download_number").innerHTML = rihanna_download;
           }
-         else{
+         else if (letter == 's') {
              sam_download ++;
              document.getElementById("sam_download_number").innerHTML = sam_download;
          }
-     
+         else if(letter == 'm') {
+             shawn_download ++;
+             document.getElementById("shawn_download_number").innerHTML = shawn_download;
+         }
+          else if (letter == 'b'){
+             Billie_download ++;
+             document.getElementById("Billie_download_number").innerHTML = Billie_download;
+          }
+         else if (letter == 'j') {
+             Jonas_download ++;
+             document.getElementById("Jonas_download_number").innerHTML = Jonas_download;
+         }
+         else if (letter == 'k') {
+             Khalid_download ++;
+             document.getElementById("Khalid_download_number").innerHTML = Khalid_download;
+         }
   }
+  
+     //initiate server
+    var socket = new WebSocket('wss://p3-websockets-chrischi99-chrischicc9921376.codeanyapp.com/ws/draw');
+    //recieve message
+    socket.onmessage = function(receivedMessage) { 
+      var Info = JSON.parse(receivedMessage.data);
+      if (Info.user_id === 1){
+        if (Info.play_number === 1){
+            adele_play ++;
+            document.getElementById("adele_play_number").innerHTML = adele_play;
+            console.log('Song have play in screen 1');
+        }
+      }
+       if (Info.user_id === 2){
+        if (Info.play_number === 1){
+            shawn_play ++;
+            document.getElementById("shawm_play_number").innerHTML = shawn_play;
+            console.log('Song have play in screen 1');
+        }
+      }
+    };
 
 </script>
 </html>
