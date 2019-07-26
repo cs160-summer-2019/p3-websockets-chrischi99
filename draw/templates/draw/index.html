@@ -13,8 +13,11 @@
     <style type="text/css">
         body {
          color: white;
-         background-color: gray;
-         font-family: 'proxima-nova', sans-serif;
+         /*background: linear-gradient(to bottom right, #660033 0%, #666699 100%);*/
+         /*background: linear-gradient(to bottom right, #ff3399 0%, #ff0000 100%);*/
+         /*background: linear-gradient(to top right, #ff0066 0%, #993399 100%);*/
+         background: linear-gradient(to top right, #ff0066 0%, #990099 100%);
+         font-family: Futura;
         }
       .song_name{
         text-align: center;
@@ -45,6 +48,18 @@
       .QR{
         text-align: right;
       }
+      #play_1{
+        border-right: solid;
+      }
+       #play_2{
+        border-right: solid;
+      }
+      #play_3{
+        border-right: solid;
+      }
+      #play_4{
+        border-right: solid;
+      }
       
         
     </style>
@@ -60,7 +75,7 @@
         <h2 class = "singer">
           Shawn Mendes
         </h2>
-        <div class = "play">
+        <div id = "play_1" class = "play">
           <a onclick="myAudioFunction('m');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200" ></a></div>   
         <div class = "row">
             <h2>
@@ -68,7 +83,7 @@
           </h2>
           <h2>
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_1" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -96,7 +111,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_2" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -120,14 +135,14 @@
         <h2 class = "singer">
           Jonas Brothers
         </h2>
-        <div class = "play">
+        <div id = "play_2" class = "play">
           <a onclick="myAudioFunction('j');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200" ></a></div>
             <div class = "row">
             <h2>
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_3" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -155,7 +170,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_4" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -179,7 +194,7 @@
         <h2 class = "singer">
           Adele
         </h2>
-        <div class = "play">
+        <div id = "play_3" class = "play">
         <a onclick="myAudioFunction('a');"><img src = "/static/Play_image.png" alt = "play" width="200" height="200"></a></div>
           <div class = "row">
               <h2>
@@ -187,7 +202,7 @@
           </h2>
           <h2>
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_5" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -214,7 +229,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_6" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -239,14 +254,14 @@
         <h2 class = "singer">
           Rihanna
         </h2>
-        <div class = "play">
+        <div id = "play_4" class = "play">
           <a onclick="myAudioFunction('r');"><img src = "/static/Play_image.png" alt = "play"width="200" height="200" ></a></div>
             <div class = "row">
             <h2>
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_7" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -274,7 +289,7 @@
               Followers: 2000
           </h2>
           <h2>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           </h2>
             <img id = "loading_Image_8" class = "QR" src = "/static/QR_1.png"  width = "75" height = "75" style = "visibility:hidden"/>
         </div>
@@ -363,10 +378,10 @@
   var regular_j = new Audio("/static/Songs/Regular/jonas.m4a");
   var regular_k = new Audio("/static/Songs/Regular/khalid.m4a");
   //intro audio files
-//   var regular_a = new Audio("/static/Songs/Intro/adele.mp3");
-//   var regular_c = new Audio("/static/Songs/Intro/coldplay.mp3");
-//   var regular_r = new Audio("/static/Songs/Intro/rihanna.mp3");
-//   var regular_s = new Audio("/static/Songs/Intro/smith.mp3");
+//   var regular_a = new Audio("/static/Songs/Intro/adele_variant.mp3");
+//   var regular_c = new Audio("/static/Songs/Intro/coldplay_variant.mp3");
+//   var regular_r = new Audio("/static/Songs/Intro/rihanna_variant.mp3");
+//   var regular_s = new Audio("/static/Songs/Intro/smith_variant.mp3");
 //   var regular_m = new Audio("/static/Songs/Intro/shawn.m4a");
 //   var regular_b = new Audio("/static/Songs/Intro/billie.m4a");
 //   var regular_j = new Audio("/static/Songs/Intro/jonas.m4a");

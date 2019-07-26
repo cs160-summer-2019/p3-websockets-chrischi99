@@ -26,6 +26,13 @@
       body{
         width: 100%;
         height: 100%;
+        background: linear-gradient(to bottom right, #cc0099 0%, #cc0000 100%);
+        font-family: Futura;
+        color : white;
+      }
+      .btn{
+        color : white;
+        background-color: black;
       }
         
     </style>
@@ -38,7 +45,7 @@
     <div class="col-md-3" style="padding-top:70px;">
       <br><br>
       <img src="https://pbs.twimg.com/profile_images/657199367556866048/EBEIl2ol_400x400.jpg" 
-           height="200" width="200" style="border-radius: 50%;">
+           height="200" width="200" style="border-radius: 50%; border-style: solid;">
     </div>
     
     <div class = "col-md-9"style = "padding-top: 50px; padding-left:70px;">
@@ -46,7 +53,7 @@
 
       <div class = "row" style="padding-top:60px;">
         <h1 class = "name" style="font-size: 40px;">Adele </h1>
-        <button type="button" class="btn btn-primary" style="margin-left:30px; font-size: 30px;">Follow</button>
+        <button type="button" class="btn btn-light 1" style="margin-left:30px; font-size: 30px;">Follow</button>
 
       </div>
        <div class = "row" style="padding-top:10px;">
@@ -213,7 +220,8 @@
   
   
     $(function(){
-      $(".btn.btn-primary").click(function () {
+      $(".btn.btn-light.1").click(function () {
+          
          if (follower_count === 1){
            follower_count --;
            adele_followers ++;
@@ -239,24 +247,22 @@
 
   
   //playing music
+  var play = 0;
   var regular_a = new Audio("/static/Songs/Regular/adele.mp3");
   function myAudioFunction(letter) {
-         if(letter == 'a') {
+         if(letter == 'a' && play == 0) {
+             play = 1;
              regular_a.play();
              var play_number = {"play_number": 1, "user_id": 1,"update": 2};
              var playInfoJSON = JSON.stringify(play_number);
              socket.send(playInfoJSON);
-             console.log("play music once");
+             console.log(play);
          } 
+          else if (letter == 'a' && play == 1){
+            play = 0;
+            regular_a.pause();
+            regular_a.currentTime = 0;
+          }
      }
-  
-  
-  
-  
-
-   
-    
- 
-    
 </script>
 </html>
